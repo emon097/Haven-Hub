@@ -17,8 +17,8 @@ const Product = () => {
     
 
     return (
-        <div className='bg-white text-black'>
-        
+        <div className='bg-white text-black  my-10 rounded-xl '>
+       
            {
             product.length === 0 ? <div className='flex my-72 justify-center'>
             <MoonLoader
@@ -27,7 +27,9 @@ const Product = () => {
                 size={60}
                 speedMultiplier={1}
               />
-            </div> : <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 bg-gray-200">
+            </div> : < div>
+            <p className='bg-gray-200 text-3xl font-bold pl-3 text-lime-500 pt-10'>Your Best Deal</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 bg-gray-200">
            
             {product.map((products) => (
               <>
@@ -65,7 +67,7 @@ const Product = () => {
                           </div>
                           <div class="p-4 border-t border-b text-xs text-gray-700">
                             <Link to={`${products?._id}`} ><span class="rounded-md bg-green-400 p-2 text-white mb-1">
-                              Buy Now
+                              See Details
                             </span></Link>
                           </div>
                         </p>
@@ -76,6 +78,7 @@ const Product = () => {
               </>
             ))}
           </div>
+            </div>
            }
         </div>
     );

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { IoMdHand } from 'react-icons/io';
 import { FcGoogle } from 'react-icons/fc';
 import { useForm } from 'react-hook-form';
@@ -8,10 +8,13 @@ import { AuthContext } from '../context/Authprovider';
 const SignIn = () => {
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const { loginUser } = useContext(AuthContext);
-
+const navigate = useNavigate()
   const onSubmit = data => {
     loginUser(data.email,data.password).then(res => {
       const user = res.user;
+      if(user.uid){
+        navigate("/")
+      }
       console.log(user);
     })
   };

@@ -6,11 +6,12 @@ import SignUp from './registration/SignUp';
 import SignIn from './registration/SignIn';
 import Dashboard from './Dashboard/Dashboard';
 import AddProduct from './Dashboard/AddProduct';
-import AdminOrderlist from './Dashboard/AdminOrderlist';
 import AdminProduct from './Dashboard/AdminProduct';
 import Product from './components/Product/Product';
 import ProductDetails from './components/ProductDetails/ProductDetails';
 import Cart from './components/Cart/Cart';
+import AdminProductDetails from './Dashboard/AdminProductDetails';
+import Home from './components/Home/Home';
 
 function App() {
   const router = createBrowserRouter([
@@ -18,6 +19,10 @@ function App() {
       path: "/",
       element: <Main/>,
       children:[
+        {
+          path:"/",
+          element: <Home/>
+        },
         {
           path: "/signUp",
           element: <SignUp/>,
@@ -49,16 +54,25 @@ function App() {
       element: <Dashboard/>,
       children:[
         {
+          path:"/dashboard",
+          element: <AddProduct/>
+        },
+        {
           path:"/dashboard/addProduct",
           element: <AddProduct/>
         },
         {
-          path:"/dashboard/adminOrderList",
-          element: <AdminOrderlist/>
-        },
-        {
           path:"/dashboard/adminProduct",
           element: <AdminProduct/>
+        },
+       
+        {
+          path:"/dashboard/adminProduct/:id",
+          loader: ({ params }) =>
+            fetch(
+              `http://localhost:5000/dashboard/adminProduct/${params.id}`
+            ),
+          element: <AdminProductDetails/>
         }
       ]
     }

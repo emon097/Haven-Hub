@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/Authprovider';
 import { FcGoogle } from 'react-icons/fc';
 
@@ -8,18 +8,24 @@ const SignUp = () => {
   const { createUsersEmail, updateUser, googleRegister } =
     useContext(AuthContext);
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const navigate = useNavigate()
+
   const onSubmit = data => {
-    console.log(data)
+    
     createUsersEmail(data.email, data.password).then(res => 
       {
         const user = res.user 
+        if(user.uid){
+          navigate("/")
+        }
+        console.log(user);
         const userInfo = {
           displayName: data.fullName,
           
         };
         updateUser(userInfo).then((res) => {
           const user = res.user;
-          console.log(user);
+          
         })
       }
     )

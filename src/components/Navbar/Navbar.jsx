@@ -1,20 +1,18 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BiCartDownload } from 'react-icons/bi';
+import { AuthContext } from '../../context/Authprovider';
 
 
 const Navbar = () => {
-
-          const handleLogOut =()=> {
-            logOut().then(res => {
-              const user = res.user;
-              console.log(user);
-            })
-          }
-          
+    const {user, logOut} = useContext(AuthContext)
+    const handleLogOut =()=> {
+    logOut().then(res => {
+    const user = res.user;
+    })}
     return (
         <div>
-        <div className="navbar bg-base-100 bg-slate-200 text-black">
+        <div className="navbar  bg-slate-200 text-black">
           <div className="navbar-start">
             <div className="dropdown">
               <label tabIndex={0} className="btn btn-ghost lg:hidden">
