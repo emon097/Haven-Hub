@@ -31,7 +31,7 @@ const Cart = () => {
             refetch()
             toast.success("Successfully Cancel Your Order")
           }
-            console.log(data);
+            
         });
     
         
@@ -39,7 +39,7 @@ const Cart = () => {
     return (
         <div>
          {
-         product.length === 0 ? <h1 className='text-center text-black h-60 py-64'> Not Available Product Please Order Now</h1>:
+         product.length === 0 ? <p className='text-center text-black h-52 py-52'> Not Available Product Please Order Now</p>:
          <div className='md:my-24'>{product.map(products =>
           <div  key={products._Id} className='md:mx-60 '>
          <ul role="list" class="-my-6 divide-y divide-gray-200">

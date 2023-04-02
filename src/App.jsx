@@ -12,6 +12,8 @@ import ProductDetails from './components/ProductDetails/ProductDetails';
 import Cart from './components/Cart/Cart';
 import AdminProductDetails from './Dashboard/AdminProductDetails';
 import Home from './components/Home/Home';
+import Category from './components/Home/Category';
+import PrivetRoute from './components/PrivetRoute/PrivetRoute';
 
 function App() {
   const router = createBrowserRouter([
@@ -22,6 +24,13 @@ function App() {
         {
           path:"/",
           element: <Home/>
+        },
+        {
+        path:"/",
+        loader: () => {
+          return fetch("category.json");
+        },
+        element: <Category></Category>
         },
         {
           path: "/signUp",
@@ -37,7 +46,7 @@ function App() {
         },
         {
           path: "/cart",
-          element: <Cart/>
+          element: <PrivetRoute><Cart/></PrivetRoute>
         },
         {
           path: "/product/:id",
@@ -45,13 +54,13 @@ function App() {
             fetch(
               `http://localhost:5000/product/${params.id}`
             ),
-          element: <ProductDetails/>
+          element: <PrivetRoute><ProductDetails/></PrivetRoute>
         }
       ]
     },
     {
       path:"/dashboard",
-      element: <Dashboard/>,
+      element: <PrivetRoute><Dashboard/></PrivetRoute> ,
       children:[
         {
           path:"/dashboard",

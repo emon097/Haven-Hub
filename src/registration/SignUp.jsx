@@ -3,20 +3,22 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/Authprovider';
 import { FcGoogle } from 'react-icons/fc';
+import { toast } from 'react-hot-toast';
 
 const SignUp = () => {
   const { createUsersEmail, updateUser, googleRegister } =
     useContext(AuthContext);
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
 
   const onSubmit = data => {
     
     createUsersEmail(data.email, data.password).then(res => 
       {
-        const user = res.user 
+        const user = res.user
         if(user.uid){
-          navigate("/")
+          navigate(from, { replace: true });
         }
         console.log(user);
         const userInfo = {
@@ -27,8 +29,10 @@ const SignUp = () => {
           const user = res.user;
           
         })
-      }
-    )
+      }).catch((error) => {
+        const errorMessage = error.message;
+        toast.error(errorMessage)
+      });
   };
 
     return (
@@ -85,7 +89,6 @@ const SignUp = () => {
                 </div>
                 <div className="form-control mt-6">
                   <button className="bg-green-400">Sign Up</button>
-                  <button className="bg-green-400 flex justify-center items-center mt-2"> <FcGoogle className='text-xl'></FcGoogle>Google SignUp</button>
                 </div>
                 <p className='text-black text-sm'> If You Have Already an Account then You can <Link className='text-green-400 hover:text-green-500' to="/login">LogIn</Link> </p>
               </div>

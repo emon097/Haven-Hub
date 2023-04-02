@@ -4,8 +4,8 @@ import { TbCurrencyTaka } from 'react-icons/tb';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/Authprovider';
 const AdminProduct = () => {
+  const {user}= useContext(AuthContext)
     const [adminProduct, setAdminProduct] = useState([]);
-    const {user}= useContext(AuthContext)
     useEffect(() => {
         fetch(`http://localhost:5000/addProducts?email=${user?.email}`)
           .then((res) => res.json())

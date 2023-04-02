@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../context/Authprovider';
+import { toast } from 'react-hot-toast';
 
 const AddProduct = () => {
     const {
@@ -55,6 +56,7 @@ const AddProduct = () => {
               console.log(data);
               if(data.acknowledged){
                 e.target.reset();
+                toast.success("Product Successfully Added")
               }
             });
       })

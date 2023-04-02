@@ -4,19 +4,22 @@ import { IoMdHand } from 'react-icons/io';
 import { FcGoogle } from 'react-icons/fc';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../context/Authprovider';
+import { toast } from 'react-hot-toast';
 
 const SignIn = () => {
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const { loginUser } = useContext(AuthContext);
-const navigate = useNavigate()
+const navigate = useNavigate();
+  const from = location?.state?.from?.pathname || "/";
   const onSubmit = data => {
     loginUser(data.email,data.password).then(res => {
       const user = res.user;
-      if(user.uid){
-        navigate("/")
-      }
+        navigate(from, { replace: true });
       console.log(user);
-    })
+    }).catch((error) => {
+      const errorMessage = error.message;
+      toast.error(errorMessage)
+    });
   };
     return (
         <div>

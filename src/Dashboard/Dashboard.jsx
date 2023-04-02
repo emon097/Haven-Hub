@@ -24,7 +24,7 @@ const Dashboard = () => {
                 <label htmlFor="my-drawer" className="flex bg-lime-500  text-white justify-end  hover:bg-lime-600 cursor-pointer drawer-button ml-64 rounded-lg"><RxCross2 className='text-3xl' ></RxCross2></label>
                 <li className=' focus-visible:bg-lime-500 focus:bg-lime-500  
                 '> <Link to="/dashboard/addProduct">Add Product</Link> </li>
-                <li className='  focus-visible:bg-lime-500 focus:bg-lime-500 '> <Link to="/dashboard/adminProduct">Product List</Link>  </li>
+                <li className='  focus-visible:bg-lime-500 focus:bg-lime-500 '> <Link to="/dashboard/adminProduct">Your Added Product </Link>  </li>
                 </ul>
             </div>
             </div>
