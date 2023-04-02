@@ -7,7 +7,7 @@ const AdminProduct = () => {
   const {user}= useContext(AuthContext)
     const [adminProduct, setAdminProduct] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/addProducts?email=${user?.email}`)
+        fetch(`https://haven-hub-server.vercel.app/addProducts?email=${user?.email}`)
           .then((res) => res.json())
           .then((data) => {
             setAdminProduct(data);

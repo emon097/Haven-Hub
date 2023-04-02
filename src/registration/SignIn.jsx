@@ -24,11 +24,10 @@ const navigate = useNavigate();
     return (
         <div>
            <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="hero min-h-screen bg-base-200">
-       
+      <div className="md:hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
          
-          <div className="card p-5 flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <div className="card md:p-5 flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <h1 className='text-2xl text-center font-semibold text-green-400'>Welcome Back! Sign in <IoMdHand className='mx-auto text-center'></IoMdHand> </h1>
             <div className="card-body">
               <div className="form-control">
@@ -60,7 +59,7 @@ const navigate = useNavigate();
               </div>
               <div className="form-control mt-6">
                 <button className="bg-green-400">Login</button>
-                <button className="bg-green-400 flex justify-center items-center mt-2"> <FcGoogle className='text-xl'></FcGoogle>Google LogIn</button>
+               
               </div>
               <p className='text-black text-sm'> If You New Please <Link className='text-green-400 hover:text-green-500' to="/signUp">Sign Up</Link> </p>
             </div>

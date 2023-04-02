@@ -8,7 +8,10 @@ const Footer = () => {
         <div>
          
           <p className="font-bold">
-            Haven Hub <br />
+            <div className='flex justify-center'>
+            <img className='w-20 ' src="https://i.ibb.co/tqPW58H/haven-hub-removebg-preview.png" alt="haven-hub-removebg-preview" />
+            </div>
+           <br />
             Providing reliable tech since 2023
           </p>
           <p>Copyright © 2023 - All right reserved</p>

@@ -38,7 +38,7 @@ const SignUp = () => {
     return (
         <div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="hero min-h-screen bg-base-200">
+        <div className="md:hero min-h-screen bg-base-200">
           <div className="hero-content flex-col lg:flex-row-reverse md:mx-40 ">
 
             <div className="text-center text-black lg:text-left">

@@ -13,7 +13,7 @@ const Cart = () => {
       queryKey: ["review"],
       queryFn: async () => {
         const res = await fetch(
-          `http://localhost:5000/cart?cartEmail=${user?.email}`
+          `https://haven-hub-server.vercel.app/cart?cartEmail=${user?.email}`
         );
         const data = await res.json();
         setProduct(data);
@@ -22,7 +22,7 @@ const Cart = () => {
     });
     
        const handlerDelete=(id) => {
-        fetch(`http://localhost:5000/cart/${id}`,{
+        fetch(`https://haven-hub-server.vercel.app/cart/${id}`,{
           method: "DELETE"
         })
         .then((res) => res.json())
@@ -40,7 +40,7 @@ const Cart = () => {
         <div>
          {
          product.length === 0 ? <p className='text-center text-black h-52 py-52'> Not Available Product Please Order Now</p>:
-         <div className='md:my-24'>{product.map(products =>
+         <div className='md:my-24 my-5 mx-5'>{product.map(products =>
           <div  key={products._Id} className='md:mx-60 '>
          <ul role="list" class="-my-6 divide-y divide-gray-200">
           <li class="flex py-6">

@@ -44,7 +44,7 @@ const AddProduct = () => {
             email,
           };
           console.log(allDetails);
-          fetch("http://localhost:5000/addProducts", {
+          fetch("https://haven-hub-server.vercel.app/addProducts", {
             method: "POST",
             headers: {
               "content-type": "application/json",

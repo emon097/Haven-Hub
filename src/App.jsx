@@ -52,7 +52,7 @@ function App() {
           path: "/product/:id",
           loader: ({ params }) =>
             fetch(
-              `http://localhost:5000/product/${params.id}`
+              `https://haven-hub-server.vercel.app/product/${params.id}`
             ),
           element: <PrivetRoute><ProductDetails/></PrivetRoute>
         }
@@ -79,7 +79,7 @@ function App() {
           path:"/dashboard/adminProduct/:id",
           loader: ({ params }) =>
             fetch(
-              `http://localhost:5000/dashboard/adminProduct/${params.id}`
+              `https://haven-hub-server.vercel.app/dashboard/adminProduct/${params.id}`
             ),
           element: <AdminProductDetails/>
         }

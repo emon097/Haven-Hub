@@ -21,7 +21,7 @@ const ProductDetails = () => {
     const cartDetails = {
     cartEmail,pName,pPrice,pCategory,pPhoto, productId}
     console.log(cartDetails);
-    fetch("http://localhost:5000/addCart", {
+    fetch("https://haven-hub-server.vercel.app/addCart", {
             method: "POST",
             headers: {
               "content-type": "application/json",

@@ -51,10 +51,19 @@ const Navbar = () => {
                   Product
                   </Link>
                   </li>
-                 
+                  <li>
+              
+                <Link to="/cart" className='hover:text-white hover:bg-lime-500 ' >
+                  <BiCartDownload className='text-2xl'></BiCartDownload>
+                Cart  
+                
+                </Link>
+              </li>
               </ul>
             </div>
-            <a className="btn btn-ghost normal-case text-xl">Haven Hub</a>
+            <Link to="/" className="flex items-center relative">
+            <img className='w-14' src="https://i.ibb.co/tqPW58H/haven-hub-removebg-preview.png" alt="haven-hub-removebg-preview" />
+               <p className='mr-8 font-extrabold'>Haven Hub</p> </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">
