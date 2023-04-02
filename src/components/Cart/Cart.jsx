@@ -39,8 +39,9 @@ const Cart = () => {
     return (
         <div>
          {
-         product.length === 0 ? <h1 className='text-center text-black h-60 py-64'> Not Available Product Please Order Now</h1>:<div>{product.map(products =>
-          <div  key={products._Id} className='md:mx-60'>
+         product.length === 0 ? <h1 className='text-center text-black h-60 py-64'> Not Available Product Please Order Now</h1>:
+         <div className='md:my-24'>{product.map(products =>
+          <div  key={products._Id} className='md:mx-60 '>
          <ul role="list" class="-my-6 divide-y divide-gray-200">
           <li class="flex py-6">
             <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">

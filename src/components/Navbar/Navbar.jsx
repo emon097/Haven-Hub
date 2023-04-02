@@ -1,29 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BiCartDownload } from 'react-icons/bi';
-import { AuthContext } from '../../context/Authprovider';
 
 
 const Navbar = () => {
-  const [product, setProduct] = useState([]);
-    const {user, logOut} = useContext(AuthContext)
-    useEffect(() => {
-      fetch(`http://localhost:5000/cart?cartEmail=${user?.email}`)
-        .then((res) => res.json())
-        .then((data) => {
-            setProduct(data);
-            console.log(data);
-        });
-    }, []);
 
-const handleLogOut =()=> {
-  logOut().then(res => {
-    const user = res.user;
-    console.log(user);
-  })
-}
-
-
+          const handleLogOut =()=> {
+            logOut().then(res => {
+              const user = res.user;
+              console.log(user);
+            })
+          }
+          
     return (
         <div>
         <div className="navbar bg-base-100 bg-slate-200 text-black">
@@ -93,7 +81,7 @@ const handleLogOut =()=> {
                 <Link to="/cart" className='hover:text-white hover:bg-lime-500 ' >
                   <BiCartDownload className='text-2xl'></BiCartDownload>
                 Cart  
-                <div className="badge ">{product.length}</div>
+                
                 </Link>
               </li>
              
